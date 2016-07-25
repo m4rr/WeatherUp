@@ -1,5 +1,5 @@
 //
-//  Weather.swift
+//  City.swift
 //  WeatherUp
 //
 //  Created by Marat S. on 25.07.16.
@@ -9,20 +9,22 @@
 import Foundation
 import ObjectMapper
 
-class Weather: Mappable {
+class City: Mappable {
 
-  var city: City?
-  var text: String?
-  var iconId: String?
+  var id: String?
+  var name: String?
+  var country: String?
 
   required init?(_ map: Map) {
 
   }
 
   func mapping(map: Map) {
-    city     <- map
-    text     <- map["weather.0.description"]
-    iconId   <- map["weather.0.icon"]
+    id      <- map["sys.id"]
+    name    <- map["name"]
+    country <- map["sys.country"]
   }
+
+
 
 }

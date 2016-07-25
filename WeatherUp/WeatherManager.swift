@@ -8,20 +8,21 @@
 
 import Foundation
 import Alamofire
+import AlamofireObjectMapper
 
 private let apiKey = "c87d3cb245cac521a3c7b03f56d2dd4c"
 
 protocol Weatherable {
 
-  func weather(cities: [Int], completion: ([AnyObject]) -> Void)
+  func weather(cities: [Int], completion: ([Weather]) -> Void)
 
-  func icon(of weather: Weather) -> URLStringConvertible
+  func icon(of weather: Weather) -> NSURL
 
 }
 
 final class WeatherManager: Weatherable {
 
-  func weather(cities: [Int], completion: ([AnyObject]) -> Void) {
+  func weather(cities: [Int], completion: ([Weather]) -> Void) {
     let parameters = [
       "id": "524901,703448,2643743",
       "units": "metric",
@@ -30,15 +31,20 @@ final class WeatherManager: Weatherable {
     Alamofire.Manager.sharedInstance
       .request(.GET,
         "http://api.openweathermap.org/data/2.5/group",
-        parameters: signed(parameters: parameters),
-        encoding: ParameterEncoding.URL, headers: nil)
-      .responseJSON { (responseResponse) in
-        print(responseResponse.result.value)
+        parameters: signed(parameters: parameters))
+      .responseArray(queue: nil, keyPath: "list", context: nil) { (response: Response<[Weather], NSError>) in
+        switch response.result {
+        case .Success(let list):
+          completion(list)
+        case .Failure(_):
+          completion([])
+        }
     }
+
   }
 
-  func icon(of weather: Weather) -> URLStringConvertible {
-    return "http://openweathermap.org/img/w/\(weather.iconId).png"
+  func icon(of weather: Weather) -> NSURL {
+    return NSURL(string: "http://openweathermap.org/img/w/\(weather.iconId).png")!
   }
 
   private func signed(parameters ps: [String: AnyObject]) -> [String: AnyObject] {

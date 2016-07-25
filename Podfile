@@ -8,7 +8,9 @@ target 'WeatherUp' do
   # Pods for WeatherUp
   
   pod 'Alamofire'
+  pod 'AlamofireImage'
   pod 'ObjectMapper'
+  pod 'AlamofireObjectMapper', '~> 3.0'
 
   target 'WeatherUpTests' do
     inherit! :search_paths

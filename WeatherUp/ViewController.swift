@@ -29,6 +29,8 @@ class ViewController: UIViewController {
     return refreshControl
   }()
 
+  private lazy var cities: [Int] = [2759794,3128760,5341145,703448,2643743,524901,3143244,3168070,3133895,2657896]
+
   private var storage: [Weather] = [] {
     didSet {
       tableView.reloadData()
@@ -38,7 +40,7 @@ class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-//    navigationItem.rightBarButtonItem = editButtonItem()
+    navigationItem.rightBarButtonItem = editButtonItem()
 
     tableView.addSubview(refreshControl)
   }
@@ -50,7 +52,7 @@ class ViewController: UIViewController {
   }
 
   private func obtainWeather(completion: (() -> Void)? = nil) {
-    weatherManager.weather([]) { (list) in
+    weatherManager.weather(cities) { (list) in
       self.storage = list
 
       completion?()
@@ -64,6 +66,13 @@ class ViewController: UIViewController {
       refreshControl.endRefreshing()
     }
   }
+
+  override func setEditing(editing: Bool, animated: Bool) {
+    tableView.setEditing(editing, animated: animated)
+    super.setEditing(editing, animated: animated)
+
+  }
+
 }
 
 private let weatherCellId = "weatherCell"
@@ -79,11 +88,14 @@ extension ViewController: UITableViewDataSource {
   }
 
   func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-    switch section {
-    case 0:
-      return storage.isEmpty ? nil : df.stringFromDate(NSDate())
-    default:
+    return storage.isEmpty ? "Loading..." : df.stringFromDate(NSDate())
+  }
+
+  func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+    if storage.isEmpty {
       return nil
+    } else {
+      return String(format: "%d %@", storage.count, storage.count == 1 ? "city" : "cities")
     }
   }
 
@@ -96,7 +108,14 @@ extension ViewController: UITableViewDelegate {
     let temp = String(format: " %0.f°", weather.temp)
     let imageUrl = weatherManager.icon(of: weather)
 
-    cell.textLabel?.text = weather.city
+    cell.textLabel?.text = {
+      if detailedStyle {
+        return (weather.city ?? "Unknown city") + (weather.country != nil ? (", " + weather.country!) : "")
+      } else {
+        return weather.city
+      }
+    }()
+
     cell.detailTextLabel?.text = {
       if detailedStyle {
         return (weather.text != nil ? (weather.text! + ", ") : "") + temp
@@ -115,6 +134,36 @@ extension ViewController: UITableViewDelegate {
     detailedStyle = !detailedStyle
 
     tableView.reloadRowsAtIndexPaths(tableView.indexPathsForVisibleRows ?? [indexPath], withRowAnimation: .Automatic)
+  }
+
+  func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    return cities.count > 1
+  }
+
+  func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    switch editingStyle {
+    case .Delete:
+      tableView.beginUpdates()
+      cities.removeAtIndex(indexPath.row)
+      storage.removeAtIndex(indexPath.row)
+      tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+      tableView.endUpdates()
+    default:
+      ()
+    }
+
+    if cities.isEmpty {
+      setEditing(false, animated: true)
+      navigationItem.rightBarButtonItem?.enabled = false
+    }
+  }
+
+  func tableView(tableView: UITableView, willBeginEditingRowAtIndexPath indexPath: NSIndexPath) {
+    editing = true
+  }
+
+  func tableView(tableView: UITableView, didEndEditingRowAtIndexPath indexPath: NSIndexPath) {
+    editing = false
   }
 
 }

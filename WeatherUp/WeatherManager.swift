@@ -24,7 +24,7 @@ final class WeatherManager: Weatherable {
 
   func weather(cities: [Int], completion: ([Weather]) -> Void) {
     let parameters = [
-      "id": "524901,703448,2643743",
+      "id": cities.reduce("", combine: { $0 + "," + String($1) }),
       "units": "metric",
     ]
 

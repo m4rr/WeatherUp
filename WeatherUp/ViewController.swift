@@ -10,14 +10,12 @@ import UIKit
 
 class ViewController: UIViewController {
 
-  let weatherManager = WeatherManager()
+  let weatherManager: Weatherable = WeatherManager()
 
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    weatherManager.weather([]) { (objects: [AnyObject]) in
-      
-    }
+//    weatherManager.weather(<#T##cities: [Int]##[Int]#>, completion: <#T##([AnyObject]) -> Void#>)
   }
 
   override func didReceiveMemoryWarning() {

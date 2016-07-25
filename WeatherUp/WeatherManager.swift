@@ -12,14 +12,6 @@ import AlamofireObjectMapper
 
 private let apiKey = "c87d3cb245cac521a3c7b03f56d2dd4c"
 
-protocol Weatherable {
-
-  func weather(cities: [Int], completion: ([Weather]) -> Void)
-
-  func icon(of weather: Weather) -> NSURL
-
-}
-
 final class WeatherManager: Weatherable {
 
   func weather(cities: [Int], completion: ([Weather]) -> Void) {

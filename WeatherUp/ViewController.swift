@@ -7,13 +7,12 @@
 //
 
 import UIKit
-import AlamofireImage
 
 final class ViewController: UIViewController {
 
-  @IBOutlet private lazy var tableController: TableController! = DataSource(tableView: self.tableView, on: self)
-
   @IBOutlet private weak var tableView: UITableView!
+  private lazy var tableController: Tableable! = TableController(tableView: self.tableView, on: self)
+
   @IBOutlet private lazy var refreshControl: UIRefreshControl! = {
     let refreshControl = UIRefreshControl()
     refreshControl.addTarget(self, action: #selector(handleRefresh), forControlEvents: UIControlEvents.ValueChanged)
@@ -26,10 +25,10 @@ final class ViewController: UIViewController {
 
     navigationItem.rightBarButtonItem = editButtonItem()
 
-    tableView.addSubview(refreshControl)
-
     tableView.dataSource = tableController
     tableView.delegate = tableController
+
+    tableView.addSubview(refreshControl)
   }
 
   override func viewDidAppear(animated: Bool) {

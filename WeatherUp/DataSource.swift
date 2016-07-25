@@ -7,16 +7,11 @@
 //
 
 import UIKit
+import AlamofireImage
 
 private let weatherCellId = "weatherCell"
 
-@objc protocol TableController: UITableViewDelegate, UITableViewDataSource {
-
-  func obtainWeather(completion: (() -> Void)?)
-
-}
-
-class DataSource: NSObject, TableController {
+final class TableController: NSObject, Tableable {
 
   init(tableView: UITableView!, on viewController: UIViewController) {
     self.tableView = tableView
@@ -57,7 +52,7 @@ class DataSource: NSObject, TableController {
 
 }
 
-extension DataSource: UITableViewDataSource {
+extension TableController: UITableViewDataSource {
 
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return storage.count
@@ -81,7 +76,7 @@ extension DataSource: UITableViewDataSource {
 
 }
 
-extension DataSource: UITableViewDelegate {
+extension TableController: UITableViewDelegate {
 
   func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
     let weather = storage[indexPath.row]

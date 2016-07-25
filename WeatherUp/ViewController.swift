@@ -10,9 +10,14 @@ import UIKit
 
 class ViewController: UIViewController {
 
+  let weatherManager = WeatherManager()
+
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view, typically from a nib.
+
+    weatherManager.weather([]) { (objects: [AnyObject]) in
+      
+    }
   }
 
   override func didReceiveMemoryWarning() {

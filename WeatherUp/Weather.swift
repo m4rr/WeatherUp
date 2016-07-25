@@ -11,20 +11,21 @@ import ObjectMapper
 
 class Weather: Mappable {
 
-  var city: String?
   var country: String?
+  var city: String?
+  var cityId: Int?
   var text: String?
   var iconId: String = ""
   var temp: Double = 0
-
 
   required init?(_ map: Map) {
 
   }
 
   func mapping(map: Map) {
-    city     <- map["name"]
     country  <- map["sys.country"]
+    city     <- map["name"]
+    cityId   <- map["id"]
     text     <- map["weather.0.description"]
     iconId   <- map["weather.0.icon"]
     temp     <- map["main.temp"]

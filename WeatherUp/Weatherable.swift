@@ -12,6 +12,4 @@ protocol Weatherable {
 
   func weather(cities: [Int], completion: ([Weather]) -> Void)
 
-  func icon(of weather: Weather) -> NSURL
-  
 }

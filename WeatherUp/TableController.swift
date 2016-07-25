@@ -81,7 +81,7 @@ extension TableController: UITableViewDelegate {
   func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
     let weather = storage[indexPath.row]
     let temp = String(format: " %0.f°", weather.temp)
-    let imageUrl = weatherManager.icon(of: weather)
+    let imageUrl = weather.iconURL
 
     cell.textLabel?.text = {
       if detailedStyle {

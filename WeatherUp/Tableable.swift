@@ -8,7 +8,7 @@
 
 import UIKit
 
-@objc protocol Tableable: UITableViewDataSource, UITableViewDelegate {
+protocol Tableable: UITableViewDataSource, UITableViewDelegate {
 
   func obtainWeather(completion: (() -> Void)?)
 

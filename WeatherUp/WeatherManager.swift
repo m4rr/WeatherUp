@@ -14,8 +14,6 @@ private let apiKey = "c87d3cb245cac521a3c7b03f56d2dd4c"
 
 final class WeatherManager: Weatherable {
 
-  private(set) var requestProcessing = false
-
   func weather(cities: [Int], completion: ([Weather]) -> Void) {
     let parameters = [
       "id": cities.reduce("", combine: { $0 + "," + String($1) }),
@@ -34,11 +32,6 @@ final class WeatherManager: Weatherable {
           completion([])
         }
     }
-
-  }
-
-  func icon(of weather: Weather) -> NSURL {
-    return NSURL(string: "http://openweathermap.org/img/w/\(weather.iconId).png") ?? NSURL()
   }
 
   private func signed(parameters ps: [String: AnyObject]) -> [String: AnyObject] {

@@ -13,10 +13,13 @@ class Weather: Mappable {
 
   var country: String?
   var city: String?
-  var cityId: Int?
+  var cityID: Int?
   var text: String?
-  var iconId: String = ""
   var temp: Double = 0
+  var iconID: String = ""
+  var iconURL: NSURL {
+    return NSURL(string: "http://openweathermap.org/img/w/\(iconID).png") ?? NSURL()
+  }
 
   required init?(_ map: Map) {
 
@@ -25,9 +28,9 @@ class Weather: Mappable {
   func mapping(map: Map) {
     country  <- map["sys.country"]
     city     <- map["name"]
-    cityId   <- map["id"]
+    cityID   <- map["id"]
     text     <- map["weather.0.description"]
-    iconId   <- map["weather.0.icon"]
+    iconID   <- map["weather.0.icon"]
     temp     <- map["main.temp"]
   }
 

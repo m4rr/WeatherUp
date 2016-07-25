@@ -10,7 +10,54 @@ import UIKit
 
 private let weatherCellId = "weatherCell"
 
-extension ViewController: UITableViewDataSource {
+@objc protocol TableController: UITableViewDelegate, UITableViewDataSource {
+
+  func obtainWeather(completion: (() -> Void)?)
+
+}
+
+class DataSource: NSObject, TableController {
+
+  init(tableView: UITableView!, on viewController: UIViewController) {
+    self.tableView = tableView
+    self.viewController = viewController
+
+    super.init()
+  }
+
+  private weak var tableView: UITableView!
+  private weak var viewController: UIViewController!
+
+  internal lazy var weatherManager: Weatherable = WeatherManager()
+
+  internal lazy var detailedStyle = false
+  internal lazy var cities: [Int] = [2759794,3128760,5341145,703448,2643743,524901,3143244,3168070,3133895,2657896]
+
+  internal var storage: [Weather] = [] {
+    didSet {
+      tableView.reloadData()
+    }
+  }
+
+  internal lazy var df: NSDateFormatter = {
+    let df = NSDateFormatter()
+    df.dateStyle = .MediumStyle
+    df.timeStyle = .NoStyle
+
+    return df
+  }()
+
+  func obtainWeather(completion: (() -> Void)? = nil) {
+    weatherManager.weather(cities) { (list) in
+      self.storage = list
+
+      completion?()
+    }
+  }
+
+}
+
+extension DataSource: UITableViewDataSource {
 
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return storage.count
@@ -34,7 +81,7 @@ extension ViewController: UITableViewDataSource {
 
 }
 
-extension ViewController: UITableViewDelegate {
+extension DataSource: UITableViewDelegate {
 
   func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
     let weather = storage[indexPath.row]
@@ -86,17 +133,16 @@ extension ViewController: UITableViewDelegate {
     }
 
     if cities.isEmpty {
-      setEditing(false, animated: true)
-      navigationItem.rightBarButtonItem?.enabled = false
+      viewController.setEditing(false, animated: true)
     }
   }
 
   func tableView(tableView: UITableView, willBeginEditingRowAtIndexPath indexPath: NSIndexPath) {
-    editing = true
+    viewController.editing = true
   }
 
   func tableView(tableView: UITableView, didEndEditingRowAtIndexPath indexPath: NSIndexPath) {
-    editing = false
+    viewController.editing = false
   }
   
 }

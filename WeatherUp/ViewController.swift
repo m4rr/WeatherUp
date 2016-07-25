@@ -11,30 +11,14 @@ import AlamofireImage
 
 final class ViewController: UIViewController {
 
-  @IBOutlet weak var tableView: UITableView!
-  private lazy var refreshControl: UIRefreshControl = {
+  @IBOutlet private lazy var tableController: TableController! = DataSource(tableView: self.tableView, on: self)
+
+  @IBOutlet private weak var tableView: UITableView!
+  @IBOutlet private lazy var refreshControl: UIRefreshControl! = {
     let refreshControl = UIRefreshControl()
     refreshControl.addTarget(self, action: #selector(handleRefresh), forControlEvents: UIControlEvents.ValueChanged)
 
     return refreshControl
-  }()
-
-  internal lazy var detailedStyle = false
-  internal lazy var weatherManager: Weatherable = WeatherManager()
-  internal lazy var cities: [Int] = [2759794,3128760,5341145,703448,2643743,524901,3143244,3168070,3133895,2657896]
-
-  internal var storage: [Weather] = [] {
-    didSet {
-      tableView.reloadData()
-    }
-  }
-
-  internal lazy var df: NSDateFormatter = {
-    let df = NSDateFormatter()
-    df.dateStyle = .MediumStyle
-    df.timeStyle = .NoStyle
-
-    return df
   }()
 
   override func viewDidLoad() {
@@ -43,26 +27,21 @@ final class ViewController: UIViewController {
     navigationItem.rightBarButtonItem = editButtonItem()
 
     tableView.addSubview(refreshControl)
+
+    tableView.dataSource = tableController
+    tableView.delegate = tableController
   }
 
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
 
-    obtainWeather()
-  }
-
-  private func obtainWeather(completion: (() -> Void)? = nil) {
-    weatherManager.weather(cities) { (list) in
-      self.storage = list
-
-      completion?()
-    }
+    tableController.obtainWeather(nil)
   }
 
   @objc private func handleRefresh(refreshControl: UIRefreshControl) {
     refreshControl.beginRefreshing()
 
-    obtainWeather { 
+    tableController.obtainWeather { 
       refreshControl.endRefreshing()
     }
   }
@@ -74,4 +53,3 @@ final class ViewController: UIViewController {
   }
 
 }
-

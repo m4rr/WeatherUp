@@ -1,0 +1,405 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		031DB7551D4640CC00AC4ABD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031DB7541D4640CC00AC4ABD /* AppDelegate.swift */; };
+		031DB7571D4640CC00AC4ABD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031DB7561D4640CC00AC4ABD /* ViewController.swift */; };
+		031DB75A1D4640CC00AC4ABD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 031DB7581D4640CC00AC4ABD /* Main.storyboard */; };
+		031DB75C1D4640CC00AC4ABD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 031DB75B1D4640CC00AC4ABD /* Assets.xcassets */; };
+		031DB75F1D4640CC00AC4ABD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 031DB75D1D4640CC00AC4ABD /* LaunchScreen.storyboard */; };
+		031DB76A1D4640CC00AC4ABD /* WeatherUpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031DB7691D4640CC00AC4ABD /* WeatherUpTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		031DB7661D4640CC00AC4ABD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 031DB7491D4640CC00AC4ABD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 031DB7501D4640CC00AC4ABD;
+			remoteInfo = WeatherUp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		031DB7511D4640CC00AC4ABD /* WeatherUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		031DB7541D4640CC00AC4ABD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		031DB7561D4640CC00AC4ABD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		031DB7591D4640CC00AC4ABD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		031DB75B1D4640CC00AC4ABD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		031DB75E1D4640CC00AC4ABD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		031DB7601D4640CC00AC4ABD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		031DB7651D4640CC00AC4ABD /* WeatherUpTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherUpTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		031DB7691D4640CC00AC4ABD /* WeatherUpTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherUpTests.swift; sourceTree = "<group>"; };
+		031DB76B1D4640CC00AC4ABD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		031DB74E1D4640CC00AC4ABD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		031DB7621D4640CC00AC4ABD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		031DB7481D4640CC00AC4ABD = {
+			isa = PBXGroup;
+			children = (
+				031DB7531D4640CC00AC4ABD /* WeatherUp */,
+				031DB7681D4640CC00AC4ABD /* WeatherUpTests */,
+				031DB7521D4640CC00AC4ABD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		031DB7521D4640CC00AC4ABD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				031DB7511D4640CC00AC4ABD /* WeatherUp.app */,
+				031DB7651D4640CC00AC4ABD /* WeatherUpTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		031DB7531D4640CC00AC4ABD /* WeatherUp */ = {
+			isa = PBXGroup;
+			children = (
+				031DB7541D4640CC00AC4ABD /* AppDelegate.swift */,
+				031DB7561D4640CC00AC4ABD /* ViewController.swift */,
+				031DB7581D4640CC00AC4ABD /* Main.storyboard */,
+				031DB75B1D4640CC00AC4ABD /* Assets.xcassets */,
+				031DB75D1D4640CC00AC4ABD /* LaunchScreen.storyboard */,
+				031DB7601D4640CC00AC4ABD /* Info.plist */,
+			);
+			path = WeatherUp;
+			sourceTree = "<group>";
+		};
+		031DB7681D4640CC00AC4ABD /* WeatherUpTests */ = {
+			isa = PBXGroup;
+			children = (
+				031DB7691D4640CC00AC4ABD /* WeatherUpTests.swift */,
+				031DB76B1D4640CC00AC4ABD /* Info.plist */,
+			);
+			path = WeatherUpTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		031DB7501D4640CC00AC4ABD /* WeatherUp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 031DB76E1D4640CC00AC4ABD /* Build configuration list for PBXNativeTarget "WeatherUp" */;
+			buildPhases = (
+				031DB74D1D4640CC00AC4ABD /* Sources */,
+				031DB74E1D4640CC00AC4ABD /* Frameworks */,
+				031DB74F1D4640CC00AC4ABD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WeatherUp;
+			productName = WeatherUp;
+			productReference = 031DB7511D4640CC00AC4ABD /* WeatherUp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		031DB7641D4640CC00AC4ABD /* WeatherUpTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 031DB7711D4640CC00AC4ABD /* Build configuration list for PBXNativeTarget "WeatherUpTests" */;
+			buildPhases = (
+				031DB7611D4640CC00AC4ABD /* Sources */,
+				031DB7621D4640CC00AC4ABD /* Frameworks */,
+				031DB7631D4640CC00AC4ABD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				031DB7671D4640CC00AC4ABD /* PBXTargetDependency */,
+			);
+			name = WeatherUpTests;
+			productName = WeatherUpTests;
+			productReference = 031DB7651D4640CC00AC4ABD /* WeatherUpTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		031DB7491D4640CC00AC4ABD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = m4rr;
+				TargetAttributes = {
+					031DB7501D4640CC00AC4ABD = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					031DB7641D4640CC00AC4ABD = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 031DB7501D4640CC00AC4ABD;
+					};
+				};
+			};
+			buildConfigurationList = 031DB74C1D4640CC00AC4ABD /* Build configuration list for PBXProject "WeatherUp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 031DB7481D4640CC00AC4ABD;
+			productRefGroup = 031DB7521D4640CC00AC4ABD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				031DB7501D4640CC00AC4ABD /* WeatherUp */,
+				031DB7641D4640CC00AC4ABD /* WeatherUpTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		031DB74F1D4640CC00AC4ABD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				031DB75F1D4640CC00AC4ABD /* LaunchScreen.storyboard in Resources */,
+				031DB75C1D4640CC00AC4ABD /* Assets.xcassets in Resources */,
+				031DB75A1D4640CC00AC4ABD /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		031DB7631D4640CC00AC4ABD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		031DB74D1D4640CC00AC4ABD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				031DB7571D4640CC00AC4ABD /* ViewController.swift in Sources */,
+				031DB7551D4640CC00AC4ABD /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		031DB7611D4640CC00AC4ABD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				031DB76A1D4640CC00AC4ABD /* WeatherUpTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		031DB7671D4640CC00AC4ABD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 031DB7501D4640CC00AC4ABD /* WeatherUp */;
+			targetProxy = 031DB7661D4640CC00AC4ABD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		031DB7581D4640CC00AC4ABD /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				031DB7591D4640CC00AC4ABD /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		031DB75D1D4640CC00AC4ABD /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				031DB75E1D4640CC00AC4ABD /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		031DB76C1D4640CC00AC4ABD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		031DB76D1D4640CC00AC4ABD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		031DB76F1D4640CC00AC4ABD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = WeatherUp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.m4rr.WeatherUp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		031DB7701D4640CC00AC4ABD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = WeatherUp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.m4rr.WeatherUp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		031DB7721D4640CC00AC4ABD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = WeatherUpTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.m4rr.WeatherUpTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WeatherUp.app/WeatherUp";
+			};
+			name = Debug;
+		};
+		031DB7731D4640CC00AC4ABD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = WeatherUpTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.m4rr.WeatherUpTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WeatherUp.app/WeatherUp";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		031DB74C1D4640CC00AC4ABD /* Build configuration list for PBXProject "WeatherUp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				031DB76C1D4640CC00AC4ABD /* Debug */,
+				031DB76D1D4640CC00AC4ABD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		031DB76E1D4640CC00AC4ABD /* Build configuration list for PBXNativeTarget "WeatherUp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				031DB76F1D4640CC00AC4ABD /* Debug */,
+				031DB7701D4640CC00AC4ABD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		031DB7711D4640CC00AC4ABD /* Build configuration list for PBXNativeTarget "WeatherUpTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				031DB7721D4640CC00AC4ABD /* Debug */,
+				031DB7731D4640CC00AC4ABD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 031DB7491D4640CC00AC4ABD /* Project object */;
+}

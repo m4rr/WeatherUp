@@ -23,12 +23,12 @@ final class TableController: NSObject, Tableable {
   private weak var tableView: UITableView!
   private weak var viewController: UIViewController!
 
-  internal lazy var weatherManager: Weatherable = WeatherManager()
+  private lazy var weatherManager: Weatherable = WeatherManager()
 
-  internal lazy var detailedStyle = false
-  internal lazy var cities: [Int] = [2759794,3128760,5341145,703448,2643743,524901,3143244,3168070,3133895,2657896]
+  private lazy var detailedStyle = false
+  private lazy var cities: [Int] = [2759794,3128760,5341145,703448,2643743,524901,3143244,3168070,3133895,2657896]
 
-  internal var storage: [Weather] = [] {
+  private var storage: [Weather] = [] {
     didSet {
       tableView.reloadData()
     }
@@ -63,15 +63,15 @@ extension TableController: UITableViewDataSource {
   }
 
   func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-    return storage.isEmpty ? "Loading..." : df.stringFromDate(NSDate())
+    if storage.isEmpty {
+      return cities.isEmpty ? nil : "Loading..."
+    } else {
+      return df.stringFromDate(NSDate())
+    }
   }
 
   func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-    if storage.isEmpty {
-      return nil
-    } else {
-      return String(format: "%d %@", storage.count, storage.count == 1 ? "city" : "cities")
-    }
+    return String(format: "%d %@", storage.count, storage.count == 1 ? "city" : "cities")
   }
 
 }
@@ -111,10 +111,6 @@ extension TableController: UITableViewDelegate {
     tableView.reloadRowsAtIndexPaths(tableView.indexPathsForVisibleRows ?? [indexPath], withRowAnimation: .Automatic)
   }
 
-  func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-    return cities.count > 1
-  }
-
   func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
     switch editingStyle {
     case .Delete:
@@ -125,10 +121,6 @@ extension TableController: UITableViewDelegate {
       tableView.endUpdates()
     default:
       ()
-    }
-
-    if cities.isEmpty {
-      viewController.setEditing(false, animated: true)
     }
   }
 

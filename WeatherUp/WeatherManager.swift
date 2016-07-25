@@ -44,7 +44,7 @@ final class WeatherManager: Weatherable {
   }
 
   func icon(of weather: Weather) -> NSURL {
-    return NSURL(string: "http://openweathermap.org/img/w/\(weather.iconId).png")!
+    return NSURL(string: "http://openweathermap.org/img/w/\(weather.iconId).png") ?? NSURL()
   }
 
   private func signed(parameters ps: [String: AnyObject]) -> [String: AnyObject] {

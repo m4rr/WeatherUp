@@ -25,6 +25,4 @@ class City: Mappable {
     country <- map["sys.country"]
   }
 
-
-
 }

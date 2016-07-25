@@ -56,10 +56,14 @@ extension ViewController: UITableViewDelegate {
     let weather = storage[indexPath.row]
     let imageUrl = weatherManager.icon(of: weather)
 
-    cell.textLabel?.text = weather.city?.name
+    cell.textLabel?.text = weather.city
     cell.detailTextLabel?.text = weather.text
     cell.imageView?.image = UIImage(named: "weather_image_placeholder")
     cell.imageView?.af_setImageWithURL(imageUrl, imageTransition: .CrossDissolve(0.1))
+  }
+
+  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    tableView.deselectRowAtIndexPath(indexPath, animated: true)
   }
 
 }

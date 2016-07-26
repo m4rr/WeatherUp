@@ -71,7 +71,7 @@ extension TableController: UITableViewDataSource {
   }
 
   func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-    return String(format: "%d %@", storage.count, storage.count == 1 ? "city" : "cities")
+    return String(format: "%d %@. Tap any for details.", storage.count, storage.count == 1 ? "city" : "cities")
   }
 
 }

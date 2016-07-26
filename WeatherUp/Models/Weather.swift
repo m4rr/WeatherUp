@@ -9,6 +9,8 @@
 import Foundation
 import ObjectMapper
 
+private let imagePath = "http://openweathermap.org/img/w/"
+
 class Weather: Mappable {
 
   var country: String?
@@ -18,7 +20,7 @@ class Weather: Mappable {
   var temp: Double = 0
   var iconID: String = ""
   var iconURL: NSURL {
-    return NSURL(string: "http://openweathermap.org/img/w/\(iconID).png") ?? NSURL()
+    return NSURL(string: imagePath + "\(iconID).png") ?? NSURL()
   }
 
   required init?(_ map: Map) {

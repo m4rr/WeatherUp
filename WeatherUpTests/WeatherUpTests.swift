@@ -10,27 +10,36 @@ import XCTest
 @testable import WeatherUp
 
 class WeatherUpTests: XCTestCase {
-    
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+
+  var weatherManager: WeatherManager?
+
+  override func setUp() {
+    super.setUp()
+
+    weatherManager = WeatherManager()
+  }
+
+  override func tearDown() {
+    // Put teardown code here. This method is called after the invocation of each test method in the class.
+    super.tearDown()
+  }
+
+  func testWeatherAPI() {
+    // Given.
+    let input = [2759794]
+    let expectation = expectationWithDescription("weather request")
+
+    weatherManager?.obtain(input: input) { list in
+      if list.count == 1 {
+        XCTAssert(list.first?.city == "Amsterdam", "Should be Amsterdam")
+
+        expectation.fulfill()
+      }
     }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
+
+    waitForExpectationsWithTimeout(10) { error in
+      XCTAssert(error == nil, "Should be nil")
     }
-    
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock {
-            // Put the code you want to measure the time of here.
-        }
-    }
-    
+  }
+
 }

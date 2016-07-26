@@ -23,7 +23,7 @@ final class TableController: NSObject, Tableable {
   private weak var tableView: UITableView!
   private weak var viewController: UIViewController!
 
-  private lazy var weatherManager: Weatherable = WeatherManager()
+  private lazy var weatherManager = WeatherManager()
 
   private lazy var detailedStyle = false
   private lazy var cities: [Int] = [2759794,3128760,5341145,703448,2643743,524901,3143244,3168070,3133895,2657896]
@@ -43,7 +43,7 @@ final class TableController: NSObject, Tableable {
   }()
 
   func obtainWeather(completion: (() -> Void)? = nil) {
-    weatherManager.weather(cities) { (list) in
+    weatherManager.obtain(input: cities) { (list) in
       self.storage = list
 
       completion?()

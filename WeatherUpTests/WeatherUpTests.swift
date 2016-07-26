@@ -27,22 +27,41 @@ class WeatherUpTests: XCTestCase {
   func testWeatherAPI() {
     // Given.
     let input = [2759794]
+    var output: [Weather] = []
+
+    // Test api.openweathermap.org
     let expectation = expectationWithDescription("weather request")
-
-    weatherManager?.obtain(input: input) { list in
+    self.weatherManager?.obtain(input: input) { list in
       if list.count == input.count {
-        XCTAssert(list.first?.city == "Amsterdam", "Should be Amsterdam")
-
+        output = list
         expectation.fulfill()
       }
     }
 
-    waitForExpectationsWithTimeout(10) { error in
+    self.waitForExpectationsWithTimeout(10) { error in
       XCTAssert(error == nil, "Should be nil")
+    }
+
+    XCTAssert(output.first?.city == "Amsterdam", "Should be Amsterdam")
+
+    // Test weather icon image download.
+    measureBlock() {
+      let imageURL = output.first?.iconURL
+      XCTAssert(imageURL != nil, "imageURL should not be nil")
+      XCTAssert(imageURL != NSURL(), "imageURL should be an URL")
+
+      /// - important: Synchronous!
+      let imageData = NSData(contentsOfURL: imageURL!)
+      XCTAssert(imageData != nil, "imageData should not be nil")
+
+      let image: UIImage? = UIImage(data: imageData!)
+      XCTAssert(image != nil, "image should not be nil")
+      XCTAssert(image != UIImage(), "imageURL should be an image")
     }
   }
 
   func testWeatherBatch() {
+
     let input = [(2759794, "Amsterdam"),
                  (3128760, "Barcelona"),
                  (5341145, "Cupertino"),
@@ -61,7 +80,7 @@ class WeatherUpTests: XCTestCase {
         list.enumerate().forEach { index, element in
           XCTAssert(element.city == input[index].1, "City name should be equal to input's")
         }
-        
+
         expectation.fulfill()
       }
     }

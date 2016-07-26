@@ -84,8 +84,8 @@
 				031DB7531D4640CC00AC4ABD /* WeatherUp */,
 				031DB7681D4640CC00AC4ABD /* WeatherUpTests */,
 				031DB7521D4640CC00AC4ABD /* Products */,
-				652D2D273C0201629A9DED1B /* Pods */,
 				3EA2561C3F3B512E3D8A3F1A /* Frameworks */,
+				652D2D273C0201629A9DED1B /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,10 +105,7 @@
 				0320F0D71D46B8DA00A3FC54 /* Protocols */,
 				03EB84E71D4651B3007BA409 /* Controllers */,
 				03EB84E61D4651A3007BA409 /* Models */,
-				031DB7581D4640CC00AC4ABD /* Main.storyboard */,
-				031DB75B1D4640CC00AC4ABD /* Assets.xcassets */,
-				031DB75D1D4640CC00AC4ABD /* LaunchScreen.storyboard */,
-				031DB7601D4640CC00AC4ABD /* Info.plist */,
+				03A9A0031D47649400ABC149 /* Resourses */,
 			);
 			path = WeatherUp;
 			sourceTree = "<group>";
@@ -116,8 +113,8 @@
 		031DB7681D4640CC00AC4ABD /* WeatherUpTests */ = {
 			isa = PBXGroup;
 			children = (
-				031DB7691D4640CC00AC4ABD /* WeatherUpTests.swift */,
 				031DB76B1D4640CC00AC4ABD /* Info.plist */,
+				031DB7691D4640CC00AC4ABD /* WeatherUpTests.swift */,
 			);
 			path = WeatherUpTests;
 			sourceTree = "<group>";
@@ -128,16 +125,27 @@
 				0320F0D51D46B8C000A3FC54 /* APIable.swift */,
 				0320F0D31D46B89D00A3FC54 /* Tableable.swift */,
 			);
-			name = Protocols;
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		03A9A0031D47649400ABC149 /* Resourses */ = {
+			isa = PBXGroup;
+			children = (
+				031DB75B1D4640CC00AC4ABD /* Assets.xcassets */,
+				031DB7601D4640CC00AC4ABD /* Info.plist */,
+				031DB75D1D4640CC00AC4ABD /* LaunchScreen.storyboard */,
+				031DB7581D4640CC00AC4ABD /* Main.storyboard */,
+			);
+			name = Resourses;
 			sourceTree = "<group>";
 		};
 		03EB84E61D4651A3007BA409 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				03EB84E21D464A5D007BA409 /* Weather.swift */,
 				03EB84E41D465069007BA409 /* City.swift */,
+				03EB84E21D464A5D007BA409 /* Weather.swift */,
 			);
-			name = Models;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		03EB84E71D4651B3007BA409 /* Controllers */ = {
@@ -147,7 +155,7 @@
 				034205491D46B37400258FC9 /* TableController.swift */,
 				031DB7741D46419600AC4ABD /* WeatherManager.swift */,
 			);
-			name = Controllers;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		3EA2561C3F3B512E3D8A3F1A /* Frameworks */ = {
@@ -406,6 +414,7 @@
 				031DB7591D4640CC00AC4ABD /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		031DB75D1D4640CC00AC4ABD /* LaunchScreen.storyboard */ = {
@@ -414,6 +423,7 @@
 				031DB75E1D4640CC00AC4ABD /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

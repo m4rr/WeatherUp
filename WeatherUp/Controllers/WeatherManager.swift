@@ -34,7 +34,7 @@ final class WeatherManager: APIable {
     }
   }
 
-  private func signed(parameters: [String: AnyObject]) -> [String: AnyObject] {
+  internal func signed(parameters: [String: AnyObject]) -> [String: AnyObject] {
     var ps = parameters
     ps["appid"] = apiKey
 

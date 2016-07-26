@@ -9,6 +9,8 @@
 import XCTest
 @testable import WeatherUp
 
+private let apiCallTimeout: NSTimeInterval = 10
+
 class WeatherUpTests: XCTestCase {
 
   var weatherManager: WeatherManager?
@@ -31,14 +33,14 @@ class WeatherUpTests: XCTestCase {
 
     // Test api.openweathermap.org
     let expectation = expectationWithDescription("weather request")
-    self.weatherManager?.obtain(input: input) { list in
+    weatherManager?.obtain(input: input) { list in
       if list.count == input.count {
         output = list
         expectation.fulfill()
       }
     }
 
-    self.waitForExpectationsWithTimeout(10) { error in
+    waitForExpectationsWithTimeout(apiCallTimeout) { error in
       XCTAssert(error == nil, "Should be nil")
     }
 
@@ -61,7 +63,6 @@ class WeatherUpTests: XCTestCase {
   }
 
   func testWeatherBatch() {
-
     let input = [(2759794, "Amsterdam"),
                  (3128760, "Barcelona"),
                  (5341145, "Cupertino"),
@@ -85,7 +86,7 @@ class WeatherUpTests: XCTestCase {
       }
     }
 
-    waitForExpectationsWithTimeout(10) { error in
+    waitForExpectationsWithTimeout(apiCallTimeout) { error in
       XCTAssert(error == nil, "Should be nil")
     }
   }

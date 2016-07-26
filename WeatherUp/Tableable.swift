@@ -10,6 +10,6 @@ import UIKit
 
 protocol Tableable: UITableViewDataSource, UITableViewDelegate {
 
-  func obtainWeather(completion: (() -> Void)?)
+  func refresh(completion: (() -> Void)?)
 
 }

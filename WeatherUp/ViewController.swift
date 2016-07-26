@@ -34,13 +34,13 @@ final class ViewController: UIViewController {
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
 
-    tableController.obtainWeather(nil)
+    tableController.refresh(nil)
   }
 
   @objc private func handleRefresh(refreshControl: UIRefreshControl) {
     refreshControl.beginRefreshing()
 
-    tableController.obtainWeather { 
+    tableController.refresh { 
       refreshControl.endRefreshing()
     }
   }

@@ -42,7 +42,7 @@ final class TableController: NSObject, Tableable {
     return df
   }()
 
-  func obtainWeather(completion: (() -> Void)? = nil) {
+  func refresh(completion: (() -> Void)? = nil) {
     weatherManager.obtain(input: cities) { (list) in
       self.storage = list
 
